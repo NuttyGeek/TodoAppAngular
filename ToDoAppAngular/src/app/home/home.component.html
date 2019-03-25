@@ -1,3 +1,53 @@
-<p>
-  home works!
-</p>
+
+
+  <div class="container">
+    <h2>Add Task</h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Your Task</mat-label>
+        <input matInput [(ngModel)]="taskInput" placeholder="Your Task" width="80%" (keyup.enter)="addTask()">
+        <mat-hint>Hint: Enter your Task</mat-hint>
+    </mat-form-field>
+
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+              <mat-selection-list #taskList>
+                <mat-card *ngFor="let task of filteredTasks">
+                  <mat-list-option checkboxPosition="before" (click)="toggleCheckbox(task.id)" [selected]="task.done">
+                    {{task.title}}
+                  <mat-icon matListIcon (click)="deleteTask(task.id)">delete</mat-icon>
+                  </mat-list-option>
+                </mat-card>
+              </mat-selection-list>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="row center">
+      <div class="col-sm-4 offset-sm-1">
+        <span>Total: {{totalTasks}}</span>
+      </div>
+      <div class="col-sm-4 offset-sm-1">
+          <span>Remaining: {{remainingTasks}}</span>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2 center">
+        <mat-button-toggle-group appearance="legacy" (change)="filter($event)" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="all">All</mat-button-toggle>
+            <mat-button-toggle value="completed">Completed</mat-button-toggle>
+            <mat-button-toggle value="remaining">Remaining</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+

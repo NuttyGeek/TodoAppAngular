@@ -1,0 +1,30 @@
+
+mat-form-field{
+  width: 80%;
+}
+
+.center{
+  text-align: center;
+}
+
+input{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+mat-list-option{
+  text-align: left;
+}
+
+mat-card{
+  margin: 10px;
+  padding: 0px;
+}
+
+.center-vertically{
+  display: flex;
+  align-items: center;
+}
+
+
+
